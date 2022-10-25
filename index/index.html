@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Cholera - Home</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="http://[::]:8888/styles/main.css">
+    </head>
+    <body>
+          <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="http://[::]:8888/index/">Cholera Outbreak Map</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li><a href="http://[::]:8888/index/">Home</a></li>
+                <li><a href="http://[::]:8888/about.html">About</a></li>
+              </ul>
+              <ul class="nav navbar-nav">
+                <li><a href="http://[::]:8888/documentation.html">Documentation</a></li>
+                <li><a href="http://[::]:8888/demovideo.html">Demo-Video</a></li>
+              </ul>
+            </div>
+          </nav>
+          <div class="card">
+            <div class="card-body">
+              <h1 style="text-align:center">1864 John Snow's Cholera Map Re-creation</h1>
+            </div>
+          </div>
+    <div class="well">
+        <div class="card">
+          <div class="card-body">
+        <svg id="bar-daywisedeath" width="800" height="280" transform="translate(20,50)"> 
+            <text id="label" x="250" y="20" font-size="20px" stroke="black">Daywise Deaths</text>
+            <g id='bar1' transform="translate(0,50)">
+              <title>Deaths were number on Date</title>
+              <!-- X-axis -->
+              <line x1="18" x2="780" y1="204" y2="204" stroke="black"/>
+              <line x1="18" x2="18" y1="204" y2="215" stroke="black"/>
+              <line x1="780" x2="780" y1="204" y2="215" stroke="black"/>
+              <line x1="30" x2="30" y1="204" y2="210" stroke="black"/>
+              <line x1="230" x2="230" y1="204" y2="210" stroke="black"/>
+              <line x1="430" x2="430" y1="204" y2="210" stroke="black"/>
+              <line x1="580" x2="580" y1="204" y2="210" stroke="black"/>
+              <line x1="750" x2="750" y1="204" y2="210" stroke="black"/>
+              <text x="20" y="224" font-size="12px" >19-Aug</text>
+              <text x="206" y="224" font-size="12px">30-Aug</text>
+              <text x="406" y="224" font-size="12px">8-Sep</text>
+              <text x="560" y="224" font-size="12px">18-Sep</text>
+              <text x="725" y="224" font-size="12px">27-Sep</text>
+              <!-- Y-axis -->
+              <line x1="18" x2="18" y1="-8" y2="202" stroke="black"/>
+              <line x1="10" x2="18" y1="202" y2="202" stroke="black"/>
+              <line x1="10" x2="18" y1="-8" y2="-8" stroke="black"/>
+              <line x1="10" x2="18" y1="62" y2="62" stroke="black"/>  
+              <line x1="10" x2="18" y1="132" y2="132" stroke="black"/> 
+              <text x="9" y="199" font-size="10px" >0</text>
+              <text x="3" y="130" font-size="9px">50</text>
+              <text x="-1" y="60" font-size="9px">100</text>    
+              <text x="-1" y="-10" font-size="9px">150</text>   
+              <text x="-20" y="30" font-size="12px" transform="rotate(-92)">Deaths</text>         
+            </g>
+        </svg>
+        <svg id="bar-agewisedeath" width="400" height="300" transform="translate(-800,400)"> 
+            <text id="label" x="100" y="20" font-size="20px" stroke="black">Agewise Deaths</text>
+            <g id='bar2' transform="translate(-150,30)">
+              <title>Number people died whose age is in between range</title>
+              <!-- X-axis -->
+              <line x1="195" x2="480" y1="204" y2="204" stroke="black"/>
+              <line x1="195" x2="195" y1="204" y2="215" stroke="black"/>
+              <line x1="480" x2="480" y1="204" y2="215" stroke="black"/>
+              <text x="218" y="216" font-size="12px" >0</text>
+              <text x="263" y="216" font-size="12px">1</text>
+              <text x="310" y="216" font-size="12px">2</text>
+              <text x="355" y="216" font-size="12px">3</text>
+              <text x="400" y="216" font-size="12px">4</text>
+              <text x="450" y="216" font-size="12px">5</text>
+              <!-- Y-axis -->
+              <line x1="195" x2="195" y1="-8" y2="200" stroke="black"/>
+              <line x1="185" x2="195" y1="200" y2="200" stroke="black"/>
+              <line x1="185" x2="195" y1="-8" y2="-8" stroke="black"/>
+              <line x1="190" x2="195" y1="62" y2="62" stroke="black"/>  
+              <line x1="190" x2="195" y1="132" y2="132" stroke="black"/>
+              <text x="180" y="132" font-size="9px">60</text>
+              <text x="175" y="62" font-size="9px">120</text> 
+              <text x="175" y="-10" font-size="9px">180</text>     
+              <text x="-30" y="210" font-size="12px" transform="rotate(-92)">Deaths</text>  
+            </g>
+        </svg>
+        <svg id="pie-genderwisedeath" width="420" height="300" transform="translate(380,-30)" > 
+          <text id="label" x="50" y="20" font-size="20px" stroke="black">Genderwise Deaths</text>
+          <g id='pie' transform="translate(-100,-100)">
+            <title>Number of gender died were number</title>
+          </g>
+        </svg>
+        <svg id="map" width="520" height="550" transform="translate(370,-200)"> 
+          <text id="label" x="120" y="30" font-size="20px" stroke="black">John Snow's Cholera Story Map</text>
+          <g id='map1' transform="translate(-50,0)"></g>
+          <g id='map2' transform="translate(-50,0)">
+            <title>This person is a gender whose age is between range</title>
+          </g>
+          <g id='map3' transform="translate(-50,0)">
+            <title>This is a PUMP</title>
+          </g>
+      </svg>
+    </div>
+    </div>
+  </div>
+        <script>
+            var Bar_Width=16;
+            var Bar_Width_1=40;
+            var Max_Bar_Height=200;
+
+            var allDeaths=[];
+            var allAgeDeaths=[];
+            var allGenderDeaths=[];
+
+            var aCount0 = 0;
+            var aCount1 = 0;
+            var aCount2 = 0;
+            var aCount3 = 0;
+            var aCount4 = 0;
+            var aCount5 = 0;
+
+            var gCount0=0;
+            var gCount1=0;
+            var deathsOnMaps;
+            var pumps;
+
+            //Function to draw bar plot and mousehover
+            function drawBarChart(allData,group)
+            {
+                var maxValue=d3.max(allData,function(d){if(allData==allDeaths){
+                                                            return d.barDeaths; }
+                                                          else if(allData==allAgeDeaths){
+                                                            return d.count;}
+                                                          });
+
+                            d3.select(group).selectAll('rect')
+                              .data(allData)
+                              .enter().append('rect')
+                              .attr('width',function(d,i){ if(allData==allDeaths){
+                                                          return Bar_Width; }
+                                                        else if(allAgeDeaths==allAgeDeaths){
+                                                            return Bar_Width_1;}
+                                                        })
+                              .attr('x',function(d,i){ if(allData==allDeaths){
+                                                          return (1.15*i*Bar_Width)+20; }
+                                                        else if(allAgeDeaths==allAgeDeaths){
+                                                            return (1.15*i*Bar_Width_1)+200;}
+                                                        })
+                              .attr('height',function(d){if(allData==allDeaths){
+                                                            var n=d.barDeaths/maxValue;
+                                                            return n*Max_Bar_Height; }
+                                                        else if(allAgeDeaths==allAgeDeaths){
+                                                            var n=d.count/maxValue;
+                                                            return n*Max_Bar_Height;}
+                                                        })
+                              .attr('y',function(d){if(allData==allDeaths){
+                                                      var n=1-(d.barDeaths/maxValue);
+                                                      return n*Max_Bar_Height; }
+                                                    else if(allAgeDeaths==allAgeDeaths){
+                                                      var n=1-(d.count/maxValue);
+                                                      return n*Max_Bar_Height;}
+                                                        })
+                              .attr("fill",function(d,i){ if(allData==allDeaths){
+                                                          return '#f6ae2d'; }
+                                                        else if(allAgeDeaths==allAgeDeaths){
+                                                            return '#06d6a0';}
+                                                        })
+                              .attr('id', function(d){if(allData==allDeaths){
+                                                        return 'bar1-'+d.deathDates; }
+                                                      else if(allAgeDeaths==allAgeDeaths){
+                                                        return 'bar2-'+d.range;}})
+                              .on('mouseover', function(d){if(allData==allDeaths){
+                                d3.select('#bar1-'+d.deathDates)
+                                                            .style('fill','red') 
+                                                            d3.selectAll('#map')
+                                                            .selectAll('.circle-'+d.deathDates)
+                                                            .attr('r','10px');
+                                  //  var circlenode=d3.selectAll('#map')
+                                  //  .selectAll('.'+d.data.gender).node();
+                                  //  circlenode.parentNode.appendChild(circlenode);
+                                  }
+                                                          else if(allData==allAgeDeaths){
+                                                            d3.select('#bar2-'+d.range)
+                                                              .style('fill','red') 
+                                                              d3.selectAll('#map')
+                                                              .selectAll('.range'+d.range)
+                                                              .attr('r','10px');
+                                  //  var circlenode=d3.selectAll('#map')
+                                  //  .selectAll('.'+d.data.gender).node();
+                                  //  circlenode.parentNode.appendChild(circlenode)
+                                  }})
+                              .on('mouseout',function(d) { if(allData==allDeaths){
+                                                            d3.select('#bar1-'+d.deathDates)
+                                                            .style('fill',null) 
+                                                            d3.selectAll('#map')
+                                                            .selectAll('.circle-'+d.deathDates)
+                                                            .attr('r','3.5px')}
+                                                          else if(allData==allAgeDeaths){
+                                                            d3.select('#bar2-'+d.range)
+                                                            .style('fill',null) 
+                                                            d3.selectAll('#map')
+                                                            .selectAll('.range'+d.range)
+                                                            .attr('r','3.5px')}
+                                                            })
+                              .append('title')
+                              .html(function(d){if(allData==allDeaths){
+                                                        return 'Deaths were '+d.barDeaths +' 0n ' +d.deathDates; }
+                                                      else if(allAgeDeaths==allAgeDeaths){
+                                                        if(d.range==0){
+                                                        return d.count +' people died whose age is on between 0-10 years';}
+                                                      else if(d.range==1){
+                                                        return d.count +' people died whose age is on between 11-20 years';}
+                                                      else if(d.range==2){
+                                                        return d.count +' people died whose age is on between 21-40 years';}
+                                                      else if(d.range==3){
+                                                        return d.count +' people died whose age is on between 41-60 years';}
+                                                      else if(d.range==4){
+                                                        return d.count +' people died whose age is on between 61-80 years';}
+                                                      else if(d.range==5){
+                                                        return d.count +' people died whose age is greater than 80 years';}}
+                                                      })
+                                                      // .show()
+                                                    };
+            // Bar Plotting for deathByDate data
+            d3.csv('/data/deathdays.csv',function(data)
+            {
+              //loop through all rows
+              for(var i=0;i<data.length; i++){
+                var barDeaths = parseInt(data[i].deaths);
+                var deathDates = (data[i].date);
+                allDeaths.push({
+                  'barDeaths':barDeaths, 'deathDates':deathDates
+                });
+              }
+              drawBarChart(allDeaths,'#bar1');
+            });
+            
+            // Bar Plotting for deathByAge and death data
+            d3.csv('/data/deaths_age_sex.csv',function(data)
+            {
+              //loop through all rows
+              for(var i=0;i<data.length; i++){
+                var barAge = data[i].age;
+                var barGender = data[i].gender;
+                if(barAge==0){ aCount0++;
+                }else if(barAge==1){ aCount1++;
+                }else if(barAge==2){aCount2++;
+                }else if(barAge==3){aCount3++;
+                }else if(barAge==4){ aCount4++;
+                }else if(barAge==5){ aCount5++;
+                }
+
+                if(barGender==0){gCount0++;
+                }else if(barGender==1){gCount1++;
+                }              
+              }
+              allAgeDeaths.push({'count':aCount0,'range':'0'});
+              allAgeDeaths.push({'count':aCount1,'range':'1'});
+              allAgeDeaths.push({'count':aCount2,'range':'2'});
+              allAgeDeaths.push({'count':aCount3,'range':'3'});
+              allAgeDeaths.push({'count':aCount4,'range':'4'});
+              allAgeDeaths.push({'count':aCount5,'range':'5'});
+
+              allGenderDeaths.push({'count':gCount0,'gender':'M'});
+              allGenderDeaths.push({'count':gCount1,'gender':'F'});
+
+              drawBarChart(allAgeDeaths,'#bar2');
+             
+              deathsOnMaps = d3.select('#map2').selectAll('circle')
+                              .data(data).enter().append('circle')
+                              .attr('r', '3.5px')
+                              .style('fill',function(d){if(d.gender==1){ return '#4f5d75'} else{ return '#e76f51'}})
+                              .attr('cx', function(d) { return ((d.x)*30)-30; })
+                              .attr('cy', function(d) { return 600-(d.y)*30; })
+                              .attr('class', function(d,i){ 
+                                if(d.gender==0){
+                                  return 'circle-'+d.date+' '+'range'+d.age+' '+'M';
+                                } else if(d.gender==1){
+                                  return 'circle-'+d.date+' '+'range'+d.age+' '+'F'; }})
+                              .append('title')
+                              .html(function(d){if(d.gender==0){
+                                                      if(d.age==0){
+                                                        return 'This person is a male whose age is between 0-10 years';}
+                                                      else if(d.age==1){
+                                                        return 'This person is a male whose age is between 11-20 years';}
+                                                      else if(d.age==2){
+                                                        return 'This person is a male whose age is between 21-40 years';}
+                                                      else if(d.age==3){
+                                                        return 'This person is a male whose age is between 41-60 years';}
+                                                      else if(d.age==4){
+                                                        return 'This person is a male whose age is between 61-80 years';}
+                                                      else if(d.age==5){
+                                                        return 'This person is a male whose age is greater than 80 years';}}
+                                                      else if(d.gender==1){
+                                                        if(d.age==0){
+                                                        return 'This person is a female whose age is between 0-10';}
+                                                      else if(d.age==1){
+                                                        return 'This person is a female whose age is between 11-20 years';}
+                                                      else if(d.age==2){
+                                                        return 'This person is a female whose age is between 21-40 years';}
+                                                      else if(d.age==3){
+                                                        return 'This person is a female whose age is between 41-60 years';}
+                                                      else if(d.age==4){
+                                                        return 'This person is a female whose age is between 61-80 years';}
+                                                      else if(d.age==5){
+                                                        return 'This person is a female whose age is  greater than 80 years';}}
+                                                      })                 
+            
+            //pie chart
+            var pieWidth=600, pieHeight=500;
+            pieRadius = Math.min(pieWidth, pieHeight) / 2;
+
+            // create svg for pie chart.
+            var pieSvg = d3.select('#pie')
+                .attr("width", pieWidth).attr("height", pieHeight).append("g")
+                .attr("transform", "translate("+pieWidth/2+","+pieHeight/2+")");
+
+            var arc = d3.svg.arc().outerRadius(pieRadius - 150).innerRadius(40);
+            var ordScale = d3.scale.ordinal()
+                            .domain(allGenderDeaths)
+                            .range(['#4f5d75','#e76f51']);
+
+            // create a function to compute the pie slice angles.
+            var pie = d3.layout.pie().sort(null).value(function(d) { return d.count; });
+
+            // Draw the pie slices.
+            pieSvg.selectAll("path").data(pie(allGenderDeaths)).enter().append("path")
+                  .attr("d", arc)
+                  // .each(function(d) { this._current = d; })
+                  .style("fill", function(d) { return ordScale(d.data.count); })
+                  .attr('id', function(d,i){ return 'arc-'+d.data.gender; })
+                  .on('mouseover', function(d) { 
+                                   d3.select('#arc-'+d.data.gender)
+                                   .style('fill','black') 
+                                   d3.selectAll('#map')
+                                   .selectAll('.'+d.data.gender)
+                                   .attr('r','10px');
+                                  //  var circlenode=d3.selectAll('#map')
+                                  //  .selectAll('.'+d.data.gender).node();
+                                  //  circlenode.parentNode.appendChild(circlenode);
+                                  })
+                  .on('mouseout',function(d) { 
+                                  d3.select('#arc-'+d.data.gender)
+                                   .style('fill',function(d){
+                                    if(d.data.gender=='F'){
+                                      return '#4f5d75'}
+                                    else if(d.data.gender=='M'){
+                                      return '#e76f51'}}) 
+                                   d3.selectAll('#map')
+                                   .selectAll('.'+d.data.gender)
+                                  //  .style('fill',null)
+                                   .attr('r','3.5px')
+                                    })
+                                    .append('title')
+                  .html(function(d){return 'Number of '+d.data.gender+' died were '+d.data.count; })
+                  // .show();
+            });
+
+            //Plotting Street names and other places
+            var streetNames = [{ name: 'BREWER STREET', x: -100, y: 506, rotate:-45},
+                          { name: 'REGENT STREET', x: 305, y: 25, rotate: 60}, 
+                          { name: 'OXFORD STREET', x: 280, y: 140, rotate: -10},
+                          { name: 'DEAN STREET', x: 384, y: -347, rotate: 70},
+                          { name: 'WorkHouse',x: 210, y: 205, rotate: 0},
+                          { name: 'Brewery', x: 371, y: -162, rotate: 60}];
+            d3.select('#map').selectAll('.streetLabel')
+            .data(streetNames)
+                          .enter()
+                          .append('text')
+					                .attr('class', 'streetLabel')
+				                	.attr('x', function(d) { return d.x; })
+			                		.attr('y', function(d) { return d.y; })
+			                		.attr('transform',function(d) { return 'rotate(' + d.rotate+')'; })
+			                		.text(function(d) { return d.name; })
+           
+            //Plotting map lines
+            d3.json('/data/streets.json', function (data) {
+
+              // Define the lines
+              var pathGen = d3.svg.line()
+                  .x(function (d) { return ((d.x)*30)-30; })
+                  .y(function (d) { return 600-(d.y)*30; });
+
+              var g = d3.select('#map1')     
+              //Loop through all the data
+              for (var i = 0; i < data.length; i++){
+                  var line = data[i];
+
+                  // console.log(line);
+                  g.append('path')
+                        .style('fill', 'none')
+                        .style('stroke', '#414141')
+                        .style('stroke-width', '3px')
+                        .attr('d', pathGen(line))
+                        .attr("transform", "rotate(0.7)")
+              }
+            });
+
+            // Pumps plotting on Map
+            d3.csv('/data/pumps.csv',function(data)
+            {           
+                pumps = d3.select('#map3').selectAll('circle')
+                          .data(data).enter().append('circle')
+                          .attr('r', '5px')
+                          .style('fill', '#2a9d8f')
+                          .attr('cx', function(d) { return ((d.x)*30)-30; })
+                          .attr('cy', function(d) { return 610-(d.y)*30; })
+                          .attr('id', function(d,i) { return 'pump-'+i; })
+                          .text(function(d) { return 'Pump'; })
+                          .append(title)
+                          .html(function(d){return 'This is a pump'})
+            });
+
+        </script>
+            <div class="footer">
+              <p></p>
+              <p>&copy Copyright 2022 G.K.ShivaRaj</p>
+          </div>
+    </body>
+</html>

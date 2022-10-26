@@ -28,14 +28,31 @@
               </ul>
             </div>
           </nav>
+          <div class="well">
           <div class="card">
             <div class="card-body">
-              <h1 style="text-align:center">1864 John Snow's Cholera Map Re-creation</h1>
+              <h1 style="text-align:center">1854 John Snow's Cholera Map Re-creation - Visualization</h1>
+                <!-- <h3><p style="text-align:center"> -->
+
             </div>
           </div>
+        </div>
     <div class="well">
         <div class="card">
           <div class="card-body">
+            <div class="container">
+            <h3><p style="text-align: justify;">
+              The 1854 John Snow's cholera map outbreak was one of the first epidemics to be investigated using modern mapping techniques. John Snow, a physician in London, England, used a dot map to track the spread of cholera through the city's water supply. His map showed that the majority of cases were concentrated around a certain water pump on Broad Street. After investigating further, Snow concluded that the water from the Broad Street pump was contaminated with cholera and that this was the source of the outbreak. He recommended that the handle of the pump be removed to prevent further spread of the disease. This was one of the first times that epidemiology was used to investigate and solve a disease outbreak.
+              <br/><br/>
+              Recently, a group of data visualization experts used the D3 JavaScript library to recreate Snow's map. The recreation is an impressive feat, and it's fascinating to see how the data has been translated into a visual format.
+              <br/><br/>
+              This project used D3 JavaScript to recreate the interative version of John Snow's map with additional charts, which helped to visualize the data and understand the outbreak. 
+            </p>
+            <p style="color: rgb(218, 139, 42);">The visualization dashboard is displayed below.
+            Click here for <a href="/documentation.html">documentation</a> and follow this <a href="/demovideo.html">link</a> for demo-video.
+            </p>
+          </h3>
+        </div>
         <svg id="bar-daywisedeath" width="800" height="280" transform="translate(20,50)"> 
             <text id="label" x="250" y="20" font-size="20px" stroke="black">Daywise Deaths</text>
             <g id='bar1' transform="translate(0,50)">
@@ -94,12 +111,12 @@
             </g>
         </svg>
         <svg id="pie-genderwisedeath" width="420" height="300" transform="translate(380,-30)" > 
-          <text id="label" x="50" y="20" font-size="20px" stroke="black">Genderwise Deaths</text>
+          <text id="label" x="100" y="20" font-size="20px" stroke="black">Genderwise Deaths</text>
           <g id='pie' transform="translate(-100,-100)">
             <title>Number of gender died were number</title>
           </g>
         </svg>
-        <svg id="map" width="520" height="550" transform="translate(370,-200)"> 
+        <svg id="map" width="520" height="550" transform="translate(370,-220)"> 
           <text id="label" x="120" y="30" font-size="20px" stroke="black">John Snow's Cholera Story Map</text>
           <g id='map1' transform="translate(-50,0)"></g>
           <g id='map2' transform="translate(-50,0)">
@@ -180,7 +197,7 @@
                                                         return 'bar2-'+d.range;}})
                               .on('mouseover', function(d){if(allData==allDeaths){
                                 d3.select('#bar1-'+d.deathDates)
-                                                            .style('fill','red') 
+                                                            .style('fill','#d99316') 
                                                             d3.selectAll('#map')
                                                             .selectAll('.circle-'+d.deathDates)
                                                             .attr('r','10px');
@@ -190,7 +207,7 @@
                                   }
                                                           else if(allData==allAgeDeaths){
                                                             d3.select('#bar2-'+d.range)
-                                                              .style('fill','red') 
+                                                              .style('fill','#05a177') 
                                                               d3.selectAll('#map')
                                                               .selectAll('.range'+d.range)
                                                               .attr('r','10px');
@@ -200,13 +217,13 @@
                                   }})
                               .on('mouseout',function(d) { if(allData==allDeaths){
                                                             d3.select('#bar1-'+d.deathDates)
-                                                            .style('fill',null) 
+                                                            .style('fill','#f6ae2d') 
                                                             d3.selectAll('#map')
                                                             .selectAll('.circle-'+d.deathDates)
                                                             .attr('r','3.5px')}
                                                           else if(allData==allAgeDeaths){
                                                             d3.select('#bar2-'+d.range)
-                                                            .style('fill',null) 
+                                                            .style('fill','#06d6a0') 
                                                             d3.selectAll('#map')
                                                             .selectAll('.range'+d.range)
                                                             .attr('r','3.5px')}
@@ -216,15 +233,15 @@
                                                         return 'Deaths were '+d.barDeaths +' 0n ' +d.deathDates; }
                                                       else if(allAgeDeaths==allAgeDeaths){
                                                         if(d.range==0){
-                                                        return d.count +' people died whose age is on between 0-10 years';}
+                                                        return d.count +' people died whose age is between 0-10 years';}
                                                       else if(d.range==1){
-                                                        return d.count +' people died whose age is on between 11-20 years';}
+                                                        return d.count +' people died whose age is between 11-20 years';}
                                                       else if(d.range==2){
-                                                        return d.count +' people died whose age is on between 21-40 years';}
+                                                        return d.count +' people died whose age is between 21-40 years';}
                                                       else if(d.range==3){
-                                                        return d.count +' people died whose age is on between 41-60 years';}
+                                                        return d.count +' people died whose age is between 41-60 years';}
                                                       else if(d.range==4){
-                                                        return d.count +' people died whose age is on between 61-80 years';}
+                                                        return d.count +' people died whose age is between 61-80 years';}
                                                       else if(d.range==5){
                                                         return d.count +' people died whose age is greater than 80 years';}}
                                                       })
@@ -315,32 +332,33 @@
                                                         return 'This person is a female whose age is  greater than 80 years';}}
                                                       })                 
             
-            //pie chart
+            // PLotting pie-chart
             var pieWidth=600, pieHeight=500;
             pieRadius = Math.min(pieWidth, pieHeight) / 2;
 
-            // create svg for pie chart.
             var pieSvg = d3.select('#pie')
                 .attr("width", pieWidth).attr("height", pieHeight).append("g")
                 .attr("transform", "translate("+pieWidth/2+","+pieHeight/2+")");
 
-            var arc = d3.svg.arc().outerRadius(pieRadius - 150).innerRadius(40);
+            var arc = d3.svg.arc().outerRadius(pieRadius - 150).innerRadius(30);
             var ordScale = d3.scale.ordinal()
                             .domain(allGenderDeaths)
                             .range(['#4f5d75','#e76f51']);
 
-            // create a function to compute the pie slice angles.
             var pie = d3.layout.pie().sort(null).value(function(d) { return d.count; });
 
             // Draw the pie slices.
             pieSvg.selectAll("path").data(pie(allGenderDeaths)).enter().append("path")
                   .attr("d", arc)
-                  // .each(function(d) { this._current = d; })
                   .style("fill", function(d) { return ordScale(d.data.count); })
                   .attr('id', function(d,i){ return 'arc-'+d.data.gender; })
                   .on('mouseover', function(d) { 
                                    d3.select('#arc-'+d.data.gender)
-                                   .style('fill','black') 
+                                   .style('fill',function(d){
+                                    if(d.data.gender=='F'){
+                                      return '#384354'}
+                                    else if(d.data.gender=='M'){
+                                      return '#bf5c43'}})
                                    d3.selectAll('#map')
                                    .selectAll('.'+d.data.gender)
                                    .attr('r','10px');
@@ -361,17 +379,22 @@
                                    .attr('r','3.5px')
                                     })
                                     .append('title')
-                  .html(function(d){return 'Number of '+d.data.gender+' died were '+d.data.count; })
+                  .html(function(d){if(d.data.gender=='M'){
+                    return 'Number of MALES died were '+d.data.count;}
+                    else if(d.data.gender=='F'){
+                      return 'Number of FEMALES died were '+d.data.count;}
+                  })
                   // .show();
             });
 
-            //Plotting Street names and other places
+            //Plotting important Street names, work house and brewery
             var streetNames = [{ name: 'BREWER STREET', x: -100, y: 506, rotate:-45},
                           { name: 'REGENT STREET', x: 305, y: 25, rotate: 60}, 
                           { name: 'OXFORD STREET', x: 280, y: 140, rotate: -10},
                           { name: 'DEAN STREET', x: 384, y: -347, rotate: 70},
                           { name: 'WorkHouse',x: 210, y: 205, rotate: 0},
-                          { name: 'Brewery', x: 371, y: -162, rotate: 60}];
+                          { name: 'Brewery', x: 371, y: -162, rotate: 60},
+                          { name: 'BROAD STREET', x:-52 ,y:401 ,rotate:-37}];
             d3.select('#map').selectAll('.streetLabel')
             .data(streetNames)
                           .enter()
@@ -394,8 +417,6 @@
               //Loop through all the data
               for (var i = 0; i < data.length; i++){
                   var line = data[i];
-
-                  // console.log(line);
                   g.append('path')
                         .style('fill', 'none')
                         .style('stroke', '#414141')
@@ -411,15 +432,31 @@
                 pumps = d3.select('#map3').selectAll('circle')
                           .data(data).enter().append('circle')
                           .attr('r', '5px')
-                          .style('fill', '#2a9d8f')
+                          // .style('fill', '#2a9d8f')
+                          .style('fill', '#1e96c9')
                           .attr('cx', function(d) { return ((d.x)*30)-30; })
                           .attr('cy', function(d) { return 610-(d.y)*30; })
                           .attr('id', function(d,i) { return 'pump-'+i; })
                           .text(function(d) { return 'Pump'; })
-                          .append(title)
+                          .append('title')
                           .html(function(d){return 'This is a pump'})
             });
-
+// //Zoom
+// function doZoom() {
+//   mapFeatures
+//     // .selectAll('path')
+//     // .selectAll('circle').selectAll('.streetLabel')
+//     .attr("transform",
+//     "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
+// }
+// var mapFeatures =d3.select('#map')
+// // .select('#map1').select('#map2').select('#map3')
+// // .append('g')
+//     // .attr('class','features YlGnBu')
+// var zoom = d3.behavior.zoom()
+//   // .scaleExtent([1, 2])
+//   .on('zoom', doZoom);
+//   d3.select('#map').call(zoom);
         </script>
             <div class="footer">
               <p></p>

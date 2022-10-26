@@ -258,6 +258,7 @@
                   'barDeaths':barDeaths, 'deathDates':deathDates
                 });
               }
+              // Call barplot function
               drawBarChart(allDeaths,'#bar1');
             });
             
@@ -290,6 +291,7 @@
               allGenderDeaths.push({'count':gCount0,'gender':'M'});
               allGenderDeaths.push({'count':gCount1,'gender':'F'});
 
+              // Call barplot function
               drawBarChart(allAgeDeaths,'#bar2');
              
               deathsOnMaps = d3.select('#map2').selectAll('circle')
@@ -409,7 +411,7 @@
             d3.json('/data/streets.json', function (data) {
 
               // Define the lines
-              var pathGen = d3.svg.line()
+              var lanes = d3.svg.line()
                   .x(function (d) { return ((d.x)*30)-30; })
                   .y(function (d) { return 600-(d.y)*30; });
 
@@ -421,7 +423,7 @@
                         .style('fill', 'none')
                         .style('stroke', '#414141')
                         .style('stroke-width', '3px')
-                        .attr('d', pathGen(line))
+                        .attr('d', lanes(line))
                         .attr("transform", "rotate(0.7)")
               }
             });
